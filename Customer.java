@@ -17,7 +17,7 @@ public class Customer {
         return _name;
     }
 
-    private double amountFor(Rental each) {
+    private double aRental(Rental each) {
         // determine amounts for each line
         double thisAmount = 0;
         switch (each.getMovie().getPriceCode()) {
@@ -47,7 +47,7 @@ public class Customer {
             double thisAmount = 0;
             Rental each = (Rental) rentals.nextElement();
             // determine amounts for each line
-            thisAmount = amountFor(each);
+            thisAmount = aRental(each);
             // add frequent renter points
             frequentRenterPoints++;
             // add bonus for a two day new release rental
