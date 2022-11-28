@@ -1,6 +1,21 @@
+import java.util.Enumeration;
+
 public abstract class Statement {
 
-    public abstract String value(Customer aCustomer);
+    public String value(Customer aCustomer) {
+        Enumeration rentals = aCustomer.getRentals();
+
+        String result = writeHeader(aCustomer);
+
+        while (rentals.hasMoreElements()) {
+            Rental each = (Rental) rentals.nextElement();
+            // show figures for this rental
+            result += writeRental(each);
+        }
+        // add footer lines
+        result += writeFooter(aCustomer);
+        return result;
+    }
 
     public abstract String writeHeader(Customer aCustomer);
 
